@@ -1,4 +1,4 @@
-# ComfyUI/custom_nodes/ComfyUI-Nikosis-Nodes/nodes/aspect_ration_nikosis.py
+# ComfyUI/custom_nodes/ComfyUI-Nikosis-Nodes/nodes/aspect_ratio_nikosis.py
 
 import os
 import torch
@@ -47,7 +47,7 @@ class Aspect_Ratio_Nikosis:
     FUNCTION = "aspect_ratio"
     CATEGORY = "Nikosis/Aspect Ratio"
 
-    def Aspect_Ratio(self, width, height, aspect_ratio, swap_dimensions, upscale_factor, batch_size):
+    def aspect_ratio(self, width, height, aspect_ratio, swap_dimensions, upscale_factor, batch_size):
         if aspect_ratio == "1:1 square 1024x1024":
             width, height = 1024, 1024
         elif aspect_ratio == "3:4 portrait 896x1152":
