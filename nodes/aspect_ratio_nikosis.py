@@ -42,7 +42,7 @@ class Aspect_Ratio_Nikosis:
                 "batch_size": ("INT", {"default": 1, "min": 1, "max": 64})
             }
         }
-    RETURN_TYPES = ("INT", "INT", "FLOAT", "INT", "LATENT", "STRING", )
+    RETURN_TYPES = ("INT", "INT", "FLOAT", "INT", "LATENT", )
     RETURN_NAMES = ("width", "height", "upscale_factor", "batch_size", "empty_latent", )
     FUNCTION = "aspect_ratio"
     CATEGORY = "Nikosis/Aspect Ratio"
