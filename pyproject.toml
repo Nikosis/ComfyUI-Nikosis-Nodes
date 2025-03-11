@@ -1,0 +1,14 @@
+[project]
+name = "ComfyUI-Nikosis-Nodes"
+description = "Nodes: aspect_ratio_nikosis, prompt_multiple_styles_selector_nikosis, text_concatenate_nikosis "
+version = "1.0.0"
+license = { file = "LICENSE" }
+dependencies  = []
+
+[project.urls]
+Repository = "https://github.com/Nikosis/ComfyUI-Nikosis-Nodes"
+
+[tool.comfy]
+PublisherId = "nikosis"
+DisplayName = "ComfyUI-Nikosis-Nodes"
+Icon = ""
