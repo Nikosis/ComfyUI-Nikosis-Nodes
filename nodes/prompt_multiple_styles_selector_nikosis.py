@@ -3,8 +3,6 @@
 import os
 import json
 
-print("Loading prompt_multiple_styles_selector_nikosis.py from comfyui-nikosis-nodes")
-
 NODE_FILE = os.path.abspath(__file__)                           # e.g., .../nodes/prompt_multiple_styles_selector_nikosis.py
 CUSTOM_NODE_ROOT = os.path.dirname(os.path.dirname(NODE_FILE))  # Up to .../ComfyUI-Nikosis-Nodes/
 CONFIG_DIR = os.path.join(CUSTOM_NODE_ROOT, "config")           # .../ComfyUI-Nikosis-Nodes/config/
