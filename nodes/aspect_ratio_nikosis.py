@@ -2,80 +2,87 @@
 
 import os
 import torch
+import comfy.model_management as comfy_mm
 
 NODE_FILE = os.path.abspath(__file__)
-CUSTOM_NODE_ROOT = os.path.dirname(os.path.dirname(NODE_FILE))  # Up to .../ComfyUI-Nikosis-Nodes/
+CUSTOM_NODE_ROOT = os.path.dirname(os.path.dirname(NODE_FILE))
 
 MANIFEST = {
     "name": "Aspect Ratio (nikosis)",
-    "version": (1, 0, 0),
+    "version": (1, 0, 1),
     "author": "Nikosis",
     "project": "https://github.com/Nikosis/ComfyUI-Nikosis-Nodes",
-    "description": "A custom ComfyUI node to generate an aspect ratio",
+    "description": "A custom ComfyUI node to generate an empty latent for SDXL (4 channels) or SD3/Flux (16 channels)",
 }
 
-class Aspect_Ratio_Nikosis:
+class AspectRatioNikosis:
     def __init__(self):
-        pass
+        self.device = comfy_mm.intermediate_device()
 
     @classmethod
     def INPUT_TYPES(s):
-    
-        aspect_ratios = ["custom",
-                                  "1:1 square 1024x1024",
-                                  "3:4 portrait 896x1152",
-                                  "5:8 portrait 832x1216",
-                                  "9:16 portrait 768x1344",
-                                  "9:21 portrait 640x1536",
-                                  "4:3 landscape 1152x896",
-                                  "3:2 landscape 1216x832",
-                                  "16:9 landscape 1344x768",
-                                  "21:9 landscape 1536x640"]
+        aspect_ratios = [
+            "custom",
+            "1:1 square 1024x1024",
+            "2:3 portrait 832x1216",
+            "3:4 portrait 896x1152",
+            "4:5 portrait 960x1200", 
+            "9:16 portrait 768x1344",
+            "9:21 portrait 640x1536",
+            "10:16 portrait 800x1280",
+            "3:2 landscape 1216x832",            
+            "4:3 landscape 1152x896",
+            "5:4 landscape 1200x960",
+            "16:9 landscape 1344x768",
+            "16:10 landscape 1280x800",
+            "21:9 landscape 1536x640",
+        ]
         
         return {
             "required": {
-                "width": ("INT", {"default": 1024, "min": 64, "max": 8192}),
-                "height": ("INT", {"default": 1024, "min": 64, "max": 8192}),
-                "aspect_ratio": (aspect_ratios,),
-                "swap_dimensions": (["Off", "On"],),
-                "upscale_factor": ("FLOAT", {"default": 1.0, "min": 0.1, "max": 100.0, "step":0.1}),
-                "batch_size": ("INT", {"default": 1, "min": 1, "max": 64})
+                "model_type": (["SDXL", "SD3/Flux"], {"default": "SDXL"}),  # Switch between SDXL and SD3/Flux
+                "aspect_ratio": (aspect_ratios, {"default": "custom"}),
+                "width": ("INT", {"default": 1024, "min": 64, "max": 16384, "step": 8}),
+                "height": ("INT", {"default": 1024, "min": 64, "max": 16384, "step": 8}),
+                "swap_dimensions": (["Off", "On"], {"default": "Off"}),
+                "batch_size": ("INT", {"default": 1, "min": 1, "max": 64}),
             }
         }
-    RETURN_TYPES = ("INT", "INT", "FLOAT", "INT", "LATENT", )
-    RETURN_NAMES = ("width", "height", "upscale_factor", "batch_size", "empty_latent", )
-    FUNCTION = "aspect_ratio"
-    CATEGORY = "Nikosis/Aspect Ratio"
+    
+    RETURN_TYPES = ("LATENT", "INT", "INT")
+    RETURN_NAMES = ("empty_latent", "width", "height")
+    FUNCTION = "generate_latent"
+    CATEGORY = "Latent/Utilities"
 
-    def aspect_ratio(self, width, height, aspect_ratio, swap_dimensions, upscale_factor, batch_size):
-        if aspect_ratio == "1:1 square 1024x1024":
-            width, height = 1024, 1024
-        elif aspect_ratio == "3:4 portrait 896x1152":
-            width, height = 896, 1152
-        elif aspect_ratio == "5:8 portrait 832x1216":
-            width, height = 832, 1216
-        elif aspect_ratio == "9:16 portrait 768x1344":
-            width, height = 768, 1344
-        elif aspect_ratio == "9:21 portrait 640x1536":
-            width, height = 640, 1536
-        elif aspect_ratio == "4:3 landscape 1152x896":
-            width, height = 1152, 896
-        elif aspect_ratio == "3:2 landscape 1216x832":
-            width, height = 1216, 832
-        elif aspect_ratio == "16:9 landscape 1344x768":
-            width, height = 1344, 768
-        elif aspect_ratio == "21:9 landscape 1536x640":
-            width, height = 1536, 640
-
+    def generate_latent(self, model_type, aspect_ratio, width, height, swap_dimensions, batch_size):
+        # Use preset dimensions if not "custom"
+        if aspect_ratio != "custom":
+            width_str, height_str = aspect_ratio.split(" ")[-1].split("x")
+            width, height = int(width_str), int(height_str)
+        
+        # Swap dimensions if requested
         if swap_dimensions == "On":
             width, height = height, width
-             
-        latent = torch.zeros([batch_size, 4, height // 8, width // 8])
-
-        return(width, height, upscale_factor, batch_size, {"samples":latent}, )  
+        
+        # Ensure dimensions are multiples of 8
+        width = self.round_to_multiple(width, 8)
+        height = self.round_to_multiple(height, 8)
+        
+        # Set channel count based on model type
+        channels = 4 if model_type == "SDXL" else 16  # 4 for SDXL, 16 for SD3/Flux
+        
+        # Create latent tensor
+        latent = torch.zeros([batch_size, channels, height // 8, width // 8], device=self.device)
+        
+        return ({"samples": latent}, width, height)
+    
+    @staticmethod
+    def round_to_multiple(value, multiple):
+        """Round value to the nearest multiple of 'multiple'."""
+        return ((value + multiple - 1) // multiple) * multiple
 
 NODE_CLASS_MAPPINGS = {
-    "Aspect Ratio (nikosis)": Aspect_Ratio_Nikosis,
+    "Aspect Ratio (nikosis)": AspectRatioNikosis,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
