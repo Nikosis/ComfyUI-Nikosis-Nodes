@@ -1,4 +1,7 @@
 # ComfyUI/custom_nodes/ComfyUI-Nikosis-Nodes/nodes/aspect_ratio_nikosis.py
+# A custom ComfyUI node to generate an empty latent for SDXL (4 channels) or SD3/Flux (16 channels)
+
+# Aspect Ratio (nikosis)
 
 import os
 import torch
@@ -7,20 +10,13 @@ import comfy.model_management as comfy_mm
 NODE_FILE = os.path.abspath(__file__)
 CUSTOM_NODE_ROOT = os.path.dirname(os.path.dirname(NODE_FILE))
 
-MANIFEST = {
-    "name": "Aspect Ratio (nikosis)",
-    "version": (1, 0, 1),
-    "author": "Nikosis",
-    "project": "https://github.com/Nikosis/ComfyUI-Nikosis-Nodes",
-    "description": "A custom ComfyUI node to generate an empty latent for SDXL (4 channels) or SD3/Flux (16 channels)",
-}
 
 class AspectRatioNikosis:
     def __init__(self):
         self.device = comfy_mm.intermediate_device()
 
     @classmethod
-    def INPUT_TYPES(s):
+    def INPUT_TYPES(cls):
         aspect_ratios = [
             "custom",
             "1:1 square 1024x1024",
@@ -51,10 +47,10 @@ class AspectRatioNikosis:
     
     RETURN_TYPES = ("LATENT", "INT", "INT")
     RETURN_NAMES = ("empty_latent", "width", "height")
-    FUNCTION = "generate_latent"
+    FUNCTION = "generate_ar_latent"
     CATEGORY = "Latent/Utilities"
 
-    def generate_latent(self, model_type, aspect_ratio, width, height, swap_dimensions, batch_size):
+    def generate_ar_latent(self, model_type, aspect_ratio, width, height, swap_dimensions, batch_size):
         # Use preset dimensions if not "custom"
         if aspect_ratio != "custom":
             width_str, height_str = aspect_ratio.split(" ")[-1].split("x")
@@ -74,7 +70,7 @@ class AspectRatioNikosis:
         # Create latent tensor
         latent = torch.zeros([batch_size, channels, height // 8, width // 8], device=self.device)
         
-        return ({"samples": latent}, width, height)
+        return {"samples": latent}, width, height
     
     @staticmethod
     def round_to_multiple(value, multiple):
@@ -82,11 +78,11 @@ class AspectRatioNikosis:
         return ((value + multiple - 1) // multiple) * multiple
 
 NODE_CLASS_MAPPINGS = {
-    "Aspect Ratio (nikosis)": AspectRatioNikosis,
+    "AspectRatioNikosis": AspectRatioNikosis,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "Aspect Ratio (nikosis)": "🖌️ Aspect Ratio (nikosis)"
+    "AspectRatioNikosis": "🖌️ Aspect Ratio (nikosis)"
 }
 
-__all__ = ['NODE_CLASS_MAPPINGS', 'NODE_DISPLAY_NAME_MAPPINGS']
+__all__ = ['NODE_CLASS_MAPPINGS', 'NODE_DISPLAY_NAME_MAPPINGS', 'AspectRatioNikosis']
