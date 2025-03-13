@@ -1,7 +1,7 @@
 [project]
-name = "ComfyUI-Nikosis-Nodes"
-description = "Nodes: aspect_ratio_nikosis, prompt_multiple_styles_selector_nikosis, text_concatenate_nikosis "
-version = "1.0.0"
+name = "comfyui-nikosis-nodes"
+description = "Nodes: Aspect Ratio, Prompt Multiple Styles Selector, Text Concatenate"
+version = "1.1.0"
 license = { file = "LICENSE" }
 dependencies  = []
 
