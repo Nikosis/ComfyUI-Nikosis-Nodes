@@ -1,4 +1,7 @@
 # ComfyUI/custom_nodes/ComfyUI-Nikosis-Nodes/nodes/prompt_multiple_styles_selector_nikosis.py
+# A custom ComfyUI node to select and combine multiple prompt styles from a styles.json file with dropdowns
+
+# Prompt Multiple Styles Selector (nikosis)
 
 import os
 import json
@@ -9,18 +12,11 @@ CONFIG_DIR = os.path.join(CUSTOM_NODE_ROOT, "config")           # .../ComfyUI-Ni
 STYLES_PATH = os.path.join(CONFIG_DIR, "styles.json")           # .../ComfyUI-Nikosis-Nodes/config/styles.json
 TEXT_TYPE = "STRING"
 
-MANIFEST = {
-    "name": "Prompt Multiple Styles Selector (nikosis)",
-    "version": (1, 0, 0),
-    "author": "Nikosis",
-    "project": "https://github.com/Nikosis/ComfyUI-Nikosis-Nodes",
-    "description": "A custom ComfyUI node to select and combine multiple prompt styles from a styles.json file with dropdowns",
-}
 
 if not os.path.exists(CONFIG_DIR):
     os.makedirs(CONFIG_DIR, exist_ok=True)
 
-class Prompt_Multiple_Styles_Selector_Nikosis:
+class PromptMultipleStylesSelectorNikosis:
     @classmethod
     def INPUT_TYPES(cls):
         style_options = ["No Style"]
@@ -52,11 +48,11 @@ class Prompt_Multiple_Styles_Selector_Nikosis:
             with open(self.styles_path, 'r') as f:
                 self.styles = json.load(f)
         if self.styles is None:
-            return ("", "")
+            return "", ""
 
         selected_styles = [style1, style2, style3, style4]
         if all(s == "No Style" for s in selected_styles):
-            return ("", "")
+            return "", ""
 
         pos_prompts = []
         neg_prompts = []
@@ -73,14 +69,14 @@ class Prompt_Multiple_Styles_Selector_Nikosis:
         positive_prompt = ", ".join(pos_prompts)
         negative_prompt = ", ".join(neg_prompts)
 
-        return (positive_prompt, negative_prompt)
+        return positive_prompt, negative_prompt
 
 NODE_CLASS_MAPPINGS = {
-    "Prompt Multiple Styles Selector (nikosis)": Prompt_Multiple_Styles_Selector_Nikosis
+    "PromptMultipleStylesSelectorNikosis": PromptMultipleStylesSelectorNikosis
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "Prompt Multiple Styles Selector (nikosis)": "🖌️ Prompt Multiple Style Selector (nikosis)"
+    "PromptMultipleStylesSelectorNikosis": "🖌️ Prompt Multiple Style Selector (nikosis)"
 }
 
-__all__ = ['NODE_CLASS_MAPPINGS', 'NODE_DISPLAY_NAME_MAPPINGS']
+__all__ = ['NODE_CLASS_MAPPINGS', 'NODE_DISPLAY_NAME_MAPPINGS', 'PromptMultipleStylesSelectorNikosis']
