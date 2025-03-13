@@ -48,7 +48,7 @@ class AspectRatioNikosis:
     RETURN_TYPES = ("LATENT", "INT", "INT")
     RETURN_NAMES = ("empty_latent", "width", "height")
     FUNCTION = "generate_ar_latent"
-    CATEGORY = "Latent/Utilities"
+    CATEGORY = "Nikosis/Utilities"
 
     def generate_ar_latent(self, model_type, aspect_ratio, width, height, swap_dimensions, batch_size):
         # Use preset dimensions if not "custom"
