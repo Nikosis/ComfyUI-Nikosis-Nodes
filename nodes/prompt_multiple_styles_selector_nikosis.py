@@ -1,4 +1,4 @@
-# ComfyUI/custom_nodes/ComfyUI-Nikosis-Nodes/nodes/prompt_multiple_styles_selector_nikosis.py
+# ComfyUI/custom_nodes/comfyui-nikosis-nodes/nodes/prompt_multiple_styles_selector_nikosis.py
 # A custom ComfyUI node to select and combine multiple prompt styles from a styles.json file with dropdowns
 
 # Prompt Multiple Styles Selector (nikosis)
@@ -6,11 +6,10 @@
 import os
 import json
 
-NODE_FILE = os.path.abspath(__file__)                           # e.g., .../nodes/prompt_multiple_styles_selector_nikosis.py
-CUSTOM_NODE_ROOT = os.path.dirname(os.path.dirname(NODE_FILE))  # Up to .../ComfyUI-Nikosis-Nodes/
-CONFIG_DIR = os.path.join(CUSTOM_NODE_ROOT, "config")           # .../ComfyUI-Nikosis-Nodes/config/
-STYLES_PATH = os.path.join(CONFIG_DIR, "styles.json")           # .../ComfyUI-Nikosis-Nodes/config/styles.json
-TEXT_TYPE = "STRING"
+NODE_FILE = os.path.abspath(__file__)
+CUSTOM_NODE_ROOT = os.path.dirname(os.path.dirname(NODE_FILE))
+CONFIG_DIR = os.path.join(CUSTOM_NODE_ROOT, "config")
+STYLES_PATH = os.path.join(CONFIG_DIR, "styles.json")
 
 
 if not os.path.exists(CONFIG_DIR):
@@ -34,7 +33,7 @@ class PromptMultipleStylesSelectorNikosis:
             }
         }
 
-    RETURN_TYPES = (TEXT_TYPE, TEXT_TYPE)
+    RETURN_TYPES = ("STRING", "STRING")
     RETURN_NAMES = ("positive_prompt", "negative_prompt")
     FUNCTION = "multi_style_prompt"
     CATEGORY = "Nikosis-Nodes/Prompt"

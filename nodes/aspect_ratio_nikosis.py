@@ -1,15 +1,10 @@
-# ComfyUI/custom_nodes/ComfyUI-Nikosis-Nodes/nodes/aspect_ratio_nikosis.py
+# ComfyUI/custom_nodes/comfyui-nikosis-nodes/nodes/aspect_ratio_nikosis.py
 # A custom ComfyUI node to generate an empty latent for SDXL (4 channels) or SD3/Flux (16 channels)
 
 # Aspect Ratio (nikosis)
 
-import os
 import torch
 import comfy.model_management as comfy_mm
-
-NODE_FILE = os.path.abspath(__file__)
-CUSTOM_NODE_ROOT = os.path.dirname(os.path.dirname(NODE_FILE))
-
 
 class AspectRatioNikosis:
     def __init__(self):
@@ -36,6 +31,7 @@ class AspectRatioNikosis:
             "17:14 landscape 1088x896",
             "9:7 landscape 1152x896",
             "24:17 landscape 1152x832",
+            "3:2 landscape 1152x768",
             "19:13 landscape 1216x832",
             "5:3 landscape 1280x768",
             "7:4 landscape 1344x768",
@@ -47,55 +43,53 @@ class AspectRatioNikosis:
             "26:9 landscape 1664x576",
             "3:1 landscape 1728x576",
         ]
-        
+
         return {
             "required": {
                 "model_type": (["SDXL", "SD3/Flux"], {"default": "SD3/Flux"}),
                 "preset_aspect_ratio": (preset_ratios, {"default": "custom"}),
-                "width": ("INT", {"default": 1024, "min": 64, "max": 16384, "step": 16}),
-                "height": ("INT", {"default": 1024, "min": 64, "max": 16384, "step": 16}),
+                "width": ("INT", {"default": 1024, "min": 16, "max": 16384, "step": 16, "disableInput": True}),
+                "height": ("INT", {"default": 1024, "min": 16, "max": 16384, "step": 16, "disableInput": True}),
                 "swap_dimensions": ("BOOLEAN", {"default": False, "label_off": "Disabled", "label_on": "Enabled"}),
                 "batch_size": ("INT", {"default": 1, "min": 1, "max": 64}),
             }
         }
-    
+
     RETURN_TYPES = ("LATENT", "INT", "INT")
-    RETURN_NAMES = ("empty_latent", "width", "height")
+    RETURN_NAMES = ("latent", "width", "height")
     FUNCTION = "generate_ar_latent"
     CATEGORY = "Nikosis-Nodes/Utilities"
 
     def generate_ar_latent(self, model_type, preset_aspect_ratio, width, height, swap_dimensions, batch_size):
+
         # Use preset dimensions if not "custom"
         if preset_aspect_ratio != "custom":
             width_str, height_str = preset_aspect_ratio.split(" ")[-1].split("x")
             width, height = int(width_str), int(height_str)
-        
+
         # Swap dimensions if requested
         if swap_dimensions:
             width, height = height, width
-        
-        # Ensure dimensions are multiples of 16 and enforce minimum and maximum
-        min_dimension = 64
-        max_dimension = 16384
-        rounded_width = self.round_to_multiple(width, 16)
-        rounded_height = self.round_to_multiple(height, 16)
 
-        width = max(min_dimension, min(max_dimension, rounded_width))
-        height = max(min_dimension, min(max_dimension, rounded_height))
-        
+        # Ensure dimensions are multiples of 16
+        width = self.round_to_multiple(width, 16)
+        height = self.round_to_multiple(height, 16)
+
         # Set channel count based on model type
         channels = 4 if model_type == "SDXL" else 16  # 4 for SDXL, 16 for SD3/Flux
-        
+
         # Create latent tensor
         latent = torch.zeros([batch_size, channels, height // 8, width // 8], device=self.device)
-        
+
         return {"samples": latent}, width, height
-    
+
     @staticmethod
     def round_to_multiple(value, multiple):
         """Round value to the nearest multiple of 'multiple'."""
-        return ((value + multiple - 1) // multiple) * multiple
+        value = max(64, min(value, 16384))
+        return (value // multiple) * multiple
 
-NODE_CLASS_MAPPINGS = { "AspectRatioNikosis": AspectRatioNikosis }
-NODE_DISPLAY_NAME_MAPPINGS = { "AspectRatioNikosis": "🖌️ Aspect Ratio (nikosis)" }
+
+NODE_CLASS_MAPPINGS = {"AspectRatioNikosis": AspectRatioNikosis}
+NODE_DISPLAY_NAME_MAPPINGS = {"AspectRatioNikosis": "🖌️ Aspect Ratio (nikosis)"}
 __all__ = ['NODE_CLASS_MAPPINGS', 'NODE_DISPLAY_NAME_MAPPINGS', 'AspectRatioNikosis']
