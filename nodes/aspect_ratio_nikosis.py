@@ -17,30 +17,44 @@ class AspectRatioNikosis:
 
     @classmethod
     def INPUT_TYPES(cls):
-        aspect_ratios = [
+        preset_ratios = [
             "custom",
+            "1:2 portrait 704x1408",
+            "11:21 portrait 704x1344",
+            "4:7 portrait 768x1344",
+            "3:5 portrait 768x1280",
+            "13:19 portrait 832x1216",
+            "2:3 portrait 768x1152",
+            "13:18 portrait 832x1152",
+            "7:9 portrait 896x1152",
+            "14:17 portrait 896x1088",
+            "15:17 portrait 960x1088",
+            "15:16 portrait 960x1024",
             "1:1 square 1024x1024",
-            "2:3 portrait 832x1216",
-            "3:4 portrait 896x1152",
-            "4:5 portrait 960x1200", 
-            "9:16 portrait 768x1344",
-            "9:21 portrait 640x1536",
-            "10:16 portrait 800x1280",
-            "3:2 landscape 1216x832",            
-            "4:3 landscape 1152x896",
-            "5:4 landscape 1200x960",
-            "16:9 landscape 1344x768",
-            "16:10 landscape 1280x800",
-            "21:9 landscape 1536x640",
+            "16:15 landscape 1024x960",
+            "17:15 landscape 1088x960",
+            "17:14 landscape 1088x896",
+            "9:7 landscape 1152x896",
+            "24:17 landscape 1152x832",
+            "19:13 landscape 1216x832",
+            "5:3 landscape 1280x768",
+            "7:4 landscape 1344x768",
+            "12:7 landscape 1344x704",
+            "2:1 landscape 1408x704",
+            "21:10 landscape 1472x704",
+            "12:5 landscape 1536x640",
+            "5:2 landscape 1600x640",
+            "26:9 landscape 1664x576",
+            "3:1 landscape 1728x576",
         ]
         
         return {
             "required": {
-                "model_type": (["SDXL", "SD3/Flux"], {"default": "SDXL"}),  # Switch between SDXL and SD3/Flux
-                "aspect_ratio": (aspect_ratios, {"default": "custom"}),
-                "width": ("INT", {"default": 1024, "min": 64, "max": 16384, "step": 8}),
-                "height": ("INT", {"default": 1024, "min": 64, "max": 16384, "step": 8}),
-                "swap_dimensions": (["Off", "On"], {"default": "Off"}),
+                "model_type": (["SDXL", "SD3/Flux"], {"default": "SD3/Flux"}),
+                "preset_aspect_ratio": (preset_ratios, {"default": "custom"}),
+                "width": ("INT", {"default": 1024, "min": 64, "max": 16384, "step": 16}),
+                "height": ("INT", {"default": 1024, "min": 64, "max": 16384, "step": 16}),
+                "swap_dimensions": ("BOOLEAN", {"default": False, "label_off": "Disabled", "label_on": "Enabled"}),
                 "batch_size": ("INT", {"default": 1, "min": 1, "max": 64}),
             }
         }
@@ -48,21 +62,26 @@ class AspectRatioNikosis:
     RETURN_TYPES = ("LATENT", "INT", "INT")
     RETURN_NAMES = ("empty_latent", "width", "height")
     FUNCTION = "generate_ar_latent"
-    CATEGORY = "Nikosis/Utilities"
+    CATEGORY = "Nikosis-Nodes/Utilities"
 
-    def generate_ar_latent(self, model_type, aspect_ratio, width, height, swap_dimensions, batch_size):
+    def generate_ar_latent(self, model_type, preset_aspect_ratio, width, height, swap_dimensions, batch_size):
         # Use preset dimensions if not "custom"
-        if aspect_ratio != "custom":
-            width_str, height_str = aspect_ratio.split(" ")[-1].split("x")
+        if preset_aspect_ratio != "custom":
+            width_str, height_str = preset_aspect_ratio.split(" ")[-1].split("x")
             width, height = int(width_str), int(height_str)
         
         # Swap dimensions if requested
-        if swap_dimensions == "On":
+        if swap_dimensions:
             width, height = height, width
         
-        # Ensure dimensions are multiples of 8
-        width = self.round_to_multiple(width, 8)
-        height = self.round_to_multiple(height, 8)
+        # Ensure dimensions are multiples of 16 and enforce minimum and maximum
+        min_dimension = 64
+        max_dimension = 16384
+        rounded_width = self.round_to_multiple(width, 16)
+        rounded_height = self.round_to_multiple(height, 16)
+
+        width = max(min_dimension, min(max_dimension, rounded_width))
+        height = max(min_dimension, min(max_dimension, rounded_height))
         
         # Set channel count based on model type
         channels = 4 if model_type == "SDXL" else 16  # 4 for SDXL, 16 for SD3/Flux
@@ -77,12 +96,6 @@ class AspectRatioNikosis:
         """Round value to the nearest multiple of 'multiple'."""
         return ((value + multiple - 1) // multiple) * multiple
 
-NODE_CLASS_MAPPINGS = {
-    "AspectRatioNikosis": AspectRatioNikosis,
-}
-
-NODE_DISPLAY_NAME_MAPPINGS = {
-    "AspectRatioNikosis": "🖌️ Aspect Ratio (nikosis)"
-}
-
+NODE_CLASS_MAPPINGS = { "AspectRatioNikosis": AspectRatioNikosis }
+NODE_DISPLAY_NAME_MAPPINGS = { "AspectRatioNikosis": "🖌️ Aspect Ratio (nikosis)" }
 __all__ = ['NODE_CLASS_MAPPINGS', 'NODE_DISPLAY_NAME_MAPPINGS', 'AspectRatioNikosis']
