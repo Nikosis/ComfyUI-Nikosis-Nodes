@@ -37,7 +37,7 @@ class PromptMultipleStylesSelectorNikosis:
     RETURN_TYPES = (TEXT_TYPE, TEXT_TYPE)
     RETURN_NAMES = ("positive_prompt", "negative_prompt")
     FUNCTION = "multi_style_prompt"
-    CATEGORY = "Nikosis/Text"
+    CATEGORY = "Nikosis-Nodes/Prompt"
 
     def __init__(self):
         self.styles = None
@@ -71,12 +71,6 @@ class PromptMultipleStylesSelectorNikosis:
 
         return positive_prompt, negative_prompt
 
-NODE_CLASS_MAPPINGS = {
-    "PromptMultipleStylesSelectorNikosis": PromptMultipleStylesSelectorNikosis
-}
-
-NODE_DISPLAY_NAME_MAPPINGS = {
-    "PromptMultipleStylesSelectorNikosis": "🖌️ Prompt Multiple Style Selector (nikosis)"
-}
-
+NODE_CLASS_MAPPINGS = { "PromptMultipleStylesSelectorNikosis": PromptMultipleStylesSelectorNikosis }
+NODE_DISPLAY_NAME_MAPPINGS = { "PromptMultipleStylesSelectorNikosis": "🖌️ Prompt Multiple Style Selector (nikosis)" }
 __all__ = ['NODE_CLASS_MAPPINGS', 'NODE_DISPLAY_NAME_MAPPINGS', 'PromptMultipleStylesSelectorNikosis']

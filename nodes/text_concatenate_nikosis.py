@@ -1,4 +1,4 @@
-# ComfyUI/custom_nodes/ComfyUI-Nikosis-Nodes/nodes/text_concatenate_nikosis.py
+# ComfyUI/custom_nodes/comfyui-nikosis-nodes/nodes/text_concatenate_nikosis.py
 # A custom ComfyUI node to concatenate multiple text inputs with a delimiter and whitespace cleaning option
 
 # Text Concatenate (nikosis)
@@ -6,8 +6,7 @@
 import os
 
 NODE_FILE = os.path.abspath(__file__)
-CUSTOM_NODE_ROOT = os.path.dirname(os.path.dirname(NODE_FILE))  # Up to .../ComfyUI-Nikosis-Nodes/
-TEXT_TYPE = "STRING"
+CUSTOM_NODE_ROOT = os.path.dirname(os.path.dirname(NODE_FILE))
 
 
 class TextConcatenateNikosis:
@@ -66,12 +65,6 @@ class TextConcatenateNikosis:
         merged_text = delimiter.join(text_inputs)
         return (merged_text,)
 
-NODE_CLASS_MAPPINGS = {
-    "TextConcatenateNikosis": TextConcatenateNikosis,
-}
-
-NODE_DISPLAY_NAME_MAPPINGS = {
-    "TextConcatenateNikosis": "🖌️ Text Concatenate (nikosis)"
-}
-
+NODE_CLASS_MAPPINGS = { "TextConcatenateNikosis": TextConcatenateNikosis }
+NODE_DISPLAY_NAME_MAPPINGS = { "TextConcatenateNikosis": "🖌️ Text Concatenate (nikosis)" }
 __all__ = ['NODE_CLASS_MAPPINGS', 'NODE_DISPLAY_NAME_MAPPINGS', 'TextConcatenateNikosis']
