@@ -57,10 +57,10 @@ class AspectRatioNikosis:
 
     RETURN_TYPES = ("LATENT", "INT", "INT")
     RETURN_NAMES = ("latent", "width", "height")
-    FUNCTION = "generate_ar_latent"
-    CATEGORY = "Nikosis-Nodes/Utilities"
+    FUNCTION = "commence"
+    CATEGORY = "Nikosis Nodes/latent"
 
-    def generate_ar_latent(self, model_type, preset_aspect_ratio, width, height, swap_dimensions, batch_size):
+    def commence(self, model_type, preset_aspect_ratio, width, height, swap_dimensions, batch_size):
 
         # Use preset dimensions if not "custom"
         if preset_aspect_ratio != "custom":
@@ -91,5 +91,5 @@ class AspectRatioNikosis:
 
 
 NODE_CLASS_MAPPINGS = {"AspectRatioNikosis": AspectRatioNikosis}
-NODE_DISPLAY_NAME_MAPPINGS = {"AspectRatioNikosis": "🖌️ Aspect Ratio (nikosis)"}
+NODE_DISPLAY_NAME_MAPPINGS = {"AspectRatioNikosis": "Aspect Ratio (nikosis)"}
 __all__ = ['NODE_CLASS_MAPPINGS', 'NODE_DISPLAY_NAME_MAPPINGS', 'AspectRatioNikosis']

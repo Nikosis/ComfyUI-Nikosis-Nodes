@@ -35,14 +35,14 @@ class PromptMultipleStylesSelectorNikosis:
 
     RETURN_TYPES = ("STRING", "STRING")
     RETURN_NAMES = ("positive_prompt", "negative_prompt")
-    FUNCTION = "multi_style_prompt"
-    CATEGORY = "Nikosis-Nodes/Prompt"
+    FUNCTION = "commence"
+    CATEGORY = "Nikosis Nodes/prompt"
 
     def __init__(self):
         self.styles = None
         self.styles_path = STYLES_PATH
 
-    def multi_style_prompt(self, style1="No Style", style2="No Style", style3="No Style", style4="No Style"):
+    def commence(self, style1="No Style", style2="No Style", style3="No Style", style4="No Style"):
         if self.styles is None and os.path.exists(self.styles_path):
             with open(self.styles_path, 'r') as f:
                 self.styles = json.load(f)
@@ -71,5 +71,5 @@ class PromptMultipleStylesSelectorNikosis:
         return positive_prompt, negative_prompt
 
 NODE_CLASS_MAPPINGS = { "PromptMultipleStylesSelectorNikosis": PromptMultipleStylesSelectorNikosis }
-NODE_DISPLAY_NAME_MAPPINGS = { "PromptMultipleStylesSelectorNikosis": "🖌️ Prompt Multiple Style Selector (nikosis)" }
+NODE_DISPLAY_NAME_MAPPINGS = { "PromptMultipleStylesSelectorNikosis": "Prompt Multiple Style Selector (nikosis)" }
 __all__ = ['NODE_CLASS_MAPPINGS', 'NODE_DISPLAY_NAME_MAPPINGS', 'PromptMultipleStylesSelectorNikosis']

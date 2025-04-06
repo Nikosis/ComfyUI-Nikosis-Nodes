@@ -23,10 +23,10 @@ class TextConcatenateNikosis:
         }
 
     RETURN_TYPES = ("STRING",)
-    FUNCTION = "text_concatenate"
-    CATEGORY = "Nikosis-Nodes/Text"
+    FUNCTION = "commence"
+    CATEGORY = "Nikosis Nodes/text"
 
-    def text_concatenate(self, text_a, text_b, delimiter, clean_whitespace, **kwargs):
+    def commence(self, text_a, text_b, delimiter, clean_whitespace, **kwargs):
         # Handle newline delimiter
         delimiter = delimiter.replace("\\n", "\n")
 
@@ -45,5 +45,5 @@ class TextConcatenateNikosis:
 
 
 NODE_CLASS_MAPPINGS = {"TextConcatenateNikosis": TextConcatenateNikosis}
-NODE_DISPLAY_NAME_MAPPINGS = {"TextConcatenateNikosis": "🖌️ Text Concatenate (nikosis)"}
+NODE_DISPLAY_NAME_MAPPINGS = {"TextConcatenateNikosis": "Text Concatenate (nikosis)"}
 __all__ = ['NODE_CLASS_MAPPINGS', 'NODE_DISPLAY_NAME_MAPPINGS', 'TextConcatenateNikosis']
