@@ -1,8 +1,3 @@
-# ComfyUI/custom_nodes/comfyui-nikosis-nodes/nodes/text_concatenate_nikosis.py
-# A custom ComfyUI node to concatenate multiple text inputs with a delimiter and whitespace cleaning option
-
-# Text Concatenate (nikosis)
-
 class TextConcatenateNikosis:
     def __init__(self):
         pass

@@ -1,10 +1,6 @@
-# ComfyUI/custom_nodes/comfyui-nikosis-nodes/nodes/prompt_multiple_styles_selector_nikosis.py
-# A custom ComfyUI node to select and combine multiple prompt styles from a styles.json file with dropdowns
-
-# Prompt Multiple Styles Selector (nikosis)
-
 import os
 import json
+
 
 NODE_FILE = os.path.abspath(__file__)
 CUSTOM_NODE_ROOT = os.path.dirname(os.path.dirname(NODE_FILE))
@@ -14,6 +10,7 @@ STYLES_PATH = os.path.join(CONFIG_DIR, "styles.json")
 
 if not os.path.exists(CONFIG_DIR):
     os.makedirs(CONFIG_DIR, exist_ok=True)
+
 
 class PromptMultipleStylesSelectorNikosis:
     @classmethod

@@ -1,10 +1,6 @@
-# ComfyUI/custom_nodes/comfyui-nikosis-nodes/nodes/aspect_ratio_nikosis.py
-# A custom ComfyUI node to generate an empty latent for SDXL (4 channels) or SD3/Flux (16 channels)
-
-# Aspect Ratio (nikosis)
-
 import torch
 import comfy.model_management as comfy_mm
+
 
 class AspectRatioNikosis:
     def __init__(self):
