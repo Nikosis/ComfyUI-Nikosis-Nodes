@@ -20,4 +20,4 @@ except (FileNotFoundError, KeyError):
     version = "Unknown"
 
 # Nodes loading status & version
-logger.niko_log(f"\n\033[32mNikosis Nodes Loaded Successfully - v{version}\033[0m\n")
+logger.niko_log(f"\n\033[32mNikosis Nodes Loaded Successfully - v{version}\033[0m")

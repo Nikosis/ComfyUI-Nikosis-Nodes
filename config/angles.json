@@ -1,0 +1,629 @@
+{
+  "Camera | Far Away": {
+    "prompt": "((Camera Far Away))"
+  },
+  "Camera | Wide-Angle": {
+    "prompt": "((Wide-Angle))"
+  },
+  "Camera | Far-Shot": {
+    "prompt": "((Far-Shot))"
+  },
+  "Camera | Far-Angle": {
+    "prompt": "((Far-Angle))"
+  },
+  "Camera | Aerial View": {
+    "prompt": "((Aerial View))"
+  },
+  "Camera | Aerial Perspective": {
+    "prompt": "((Aerial Perspective))"
+  },
+  "Camera | Satellite View": {
+    "prompt": "((Satellite View))"
+  },
+  "Camera | Drone Footage": {
+    "prompt": "((Drone Footage))"
+  },
+  "Camera | Camera Middle Distance": {
+    "prompt": "((Camera Middle Distance))"
+  },
+  "Camera | Medium-Shot": {
+    "prompt": "((Medium-Shot))"
+  },
+  "Camera | Medium-Shot Angle": {
+    "prompt": "((Medium-Shot Angle))"
+  },
+  "Camera | Top-Down Shot": {
+    "prompt": "((Top-Down Shot))"
+  },
+  "Camera | Top-Down Perspective": {
+    "prompt": "((Top-Down Perspective))"
+  },
+  "Camera | Ground-Shot": {
+    "prompt": "((Ground-Shot))"
+  },
+  "Camera | Ground-Shot Angle": {
+    "prompt": "((Ground-Shot Angle))"
+  },
+  "Camera | Ground Angle": {
+    "prompt": "((Ground Angle))"
+  },
+  "Camera | High-Angle Shot": {
+    "prompt": "((High-Angle Shot))"
+  },
+  "Camera | High Angle": {
+    "prompt": "((High Angle))"
+  },
+  "Camera | Low-Angle Shot": {
+    "prompt": "((Low-Angle Shot))"
+  },
+  "Camera | Full-Shot": {
+    "prompt": "((Full-Shot))"
+  },
+  "Camera | Full-Body Shot": {
+    "prompt": "((Full-Body Shot))"
+  },
+  "Camera | Full-Length Shot": {
+    "prompt": "((Full-Length Shot))"
+  },
+  "Camera | Dutch-Angle": {
+    "prompt": "((Dutch-Angle))"
+  },
+  "Camera | Unusual Angle": {
+    "prompt": "((Unusual Angle))"
+  },
+  "Camera | Surreal Angle": {
+    "prompt": "((Surreal Angle))"
+  },
+  "Camera | Camera Close": {
+    "prompt": "((Camera Close))"
+  },
+  "Camera | Eye-Level Shot": {
+    "prompt": "((Eye-Level Shot))"
+  },
+  "Camera | Close-Up": {
+    "prompt": "((Close-Up))"
+  },
+  "Camera | Glamour Shot": {
+    "prompt": "((Glamour Shot))"
+  },
+  "Camera | Glamour Portrait": {
+    "prompt": "((Glamour Portrait))"
+  },
+  "Camera | Macro-Shot": {
+    "prompt": "((Macro-Shot))"
+  },
+  "Camera | Macrophotography": {
+    "prompt": "((Macrophotography))"
+  },
+  "Camera | Cinematic": {
+    "prompt": "((Cinematic))"
+  },
+  "Camera | Cinematic Still-Shot": {
+    "prompt": "((Cinematic Still-Shot))"
+  },
+  "Camera | Magazine Photography": {
+    "prompt": "((Magazine Photography))"
+  },
+  "Camera | photographed by Sports Illustrated": {
+    "prompt": "((photographed by Sports Illustrated))"
+  },
+  "Camera | photographed by Vogue": {
+    "prompt": "((photographed by Vogue))"
+  },
+  "Camera | Nature Photography": {
+    "prompt": "((Nature Photography))"
+  },
+  "Camera | Stock Photography": {
+    "prompt": "((Stock Photography))"
+  },
+  "Camera | Food Photography": {
+    "prompt": "((Food Photography))"
+  },
+  "Camera | Wedding Photography": {
+    "prompt": "((Wedding Photography))"
+  },
+  "Camera | Portrait Photography": {
+    "prompt": "((Portrait Photography))"
+  },
+  "Camera | Sports Photography": {
+    "prompt": "((Sports Photography))"
+  },
+  "Camera | Action Photography": {
+    "prompt": "((Action Photography))"
+  },
+  "Camera | Fisheye Lens": {
+    "prompt": "((Fisheye Lens))"
+  },
+  "Camera | Tilt-Shift": {
+    "prompt": "((Tilt-Shift))"
+  },
+  "Camera | Over-the-Shoulder Shot": {
+    "prompt": "((Over-the-Shoulder Shot))"
+  },
+  "Camera | Point-of-View Shot": {
+    "prompt": "((Point-of-View Shot))"
+  },
+  "Camera | First-Person View": {
+    "prompt": "((First-Person View))"
+  },
+  "Camera | Shoulder-Level Shot": {
+    "prompt": "((Shoulder-Level Shot))"
+  },
+  "Camera | Knee-Level Shot": {
+    "prompt": "((Knee-Level Shot))"
+  },
+  "Camera | Worm's-Eye View": {
+    "prompt": "((Worm's-Eye View))"
+  },
+  "Camera | Bird's-Eye View": {
+    "prompt": "((Bird's-Eye View))"
+  },
+  "Camera | Canted Angle": {
+    "prompt": "((Canted Angle))"
+  },
+  "Camera | Oblique Angle": {
+    "prompt": "((Oblique Angle))"
+  },
+  "Camera | Trunk Shot": {
+    "prompt": "((Trunk Shot))"
+  },
+  "Camera | God's-Eye View": {
+    "prompt": "((God's-Eye View))"
+  },
+  "Camera | Helicopter Shot": {
+    "prompt": "((Helicopter Shot))"
+  },
+  "Camera | Crane Shot": {
+    "prompt": "((Crane Shot))"
+  },
+  "Camera | Jib Shot": {
+    "prompt": "((Jib Shot))"
+  },
+  "Camera | Dolly Zoom": {
+    "prompt": "((Dolly Zoom))"
+  },
+  "Camera | Tracking Shot": {
+    "prompt": "((Tracking Shot))"
+  },
+  "Camera | Steadicam Shot": {
+    "prompt": "((Steadicam Shot))"
+  },
+  "Camera | Handheld Shot": {
+    "prompt": "((Handheld Shot))"
+  },
+  "Camera | SnorriCam": {
+    "prompt": "((SnorriCam))"
+  },
+  "Camera | Crash Zoom": {
+    "prompt": "((Crash Zoom))"
+  },
+  "Camera | Rack Focus": {
+    "prompt": "((Rack Focus))"
+  },
+  "Camera | Split Diopter": {
+    "prompt": "((Split Diopter))"
+  },
+  "Camera | Bullet Time": {
+    "prompt": "((Bullet Time))"
+  },
+  "Camera | Time-Lapse": {
+    "prompt": "((Time-Lapse))"
+  },
+  "Camera | Hyperlapse": {
+    "prompt": "((Hyperlapse))"
+  },
+  "Camera | Slow Motion": {
+    "prompt": "((Slow Motion))"
+  },
+  "Camera | Freeze Frame": {
+    "prompt": "((Freeze Frame))"
+  },
+  "Camera | Security Camera": {
+    "prompt": "((Security Camera))"
+  },
+  "Camera | CCTV Footage": {
+    "prompt": "((CCTV Footage))"
+  },
+  "Camera | Bodycam Footage": {
+    "prompt": "((Bodycam Footage))"
+  },
+  "Camera | Dashcam Footage": {
+    "prompt": "((Dashcam Footage))"
+  },
+  "Camera | GoPro Footage": {
+    "prompt": "((GoPro Footage))"
+  },
+  "Camera | 360° Panorama": {
+    "prompt": "((360° Panorama))"
+  },
+  "Camera | VR View": {
+    "prompt": "((VR View))"
+  },
+  "Camera | Anamorphic": {
+    "prompt": "((Anamorphic))"
+  },
+  "Camera | Bokeh Effect": {
+    "prompt": "((Bokeh Effect))"
+  },
+  "Camera | Soft Focus": {
+    "prompt": "((Soft Focus))"
+  },
+  "Camera | Tilted Focus": {
+    "prompt": "((Tilted Focus))"
+  },
+  "Camera | Lens Flare": {
+    "prompt": "((Lens Flare))"
+  },
+  "Camera | Infrared": {
+    "prompt": "((Infrared))"
+  },
+  "Camera | Thermal Imaging": {
+    "prompt": "((Thermal Imaging))"
+  },
+  "Camera | X-Ray": {
+    "prompt": "((X-Ray))"
+  },
+  "Camera | Night Vision": {
+    "prompt": "((Night Vision))"
+  },
+  "Camera | Underwater Shot": {
+    "prompt": "((Underwater Shot))"
+  },
+  "Camera | Through a Window": {
+    "prompt": "((Through a Window))"
+  },
+  "Camera | Reflection Shot": {
+    "prompt": "((Reflection Shot))"
+  },
+  "Camera | Peephole View": {
+    "prompt": "((Peephole View))"
+  },
+  "Camera | Keyhole View": {
+    "prompt": "((Keyhole View))"
+  },
+  "Camera | Telescope View": {
+    "prompt": "((Telescope View))"
+  },
+  "Camera | Microscope View": {
+    "prompt": "((Microscope View))"
+  },
+  "Camera | Periscope View": {
+    "prompt": "((Periscope View))"
+  },
+  "Camera | Kaleidoscope Effect": {
+    "prompt": "((Kaleidoscope Effect))"
+  },
+  "Camera | Film Noir Style": {
+    "prompt": "((Film Noir Style))"
+  },
+  "Camera | Vintage Photograph": {
+    "prompt": "((Vintage Photograph))"
+  },
+  "Camera | Polaroid": {
+    "prompt": "((Polaroid))"
+  },
+  "Camera | Daguerreotype": {
+    "prompt": "((Daguerreotype))"
+  },
+  "Camera | Lomography": {
+    "prompt": "((Lomography))"
+  },
+  "Camera | Cross-Processed": {
+    "prompt": "((Cross-Processed))"
+  },
+  "Camera | Double Exposure": {
+    "prompt": "((Double Exposure))"
+  },
+  "Camera | Light Painting": {
+    "prompt": "((Light Painting))"
+  },
+  "Camera | Silhouette Shot": {
+    "prompt": "((Silhouette Shot))"
+  },
+  "Camera | Solarization": {
+    "prompt": "((Solarization))"
+  },
+  "Camera | Photogram": {
+    "prompt": "((Photogram))"
+  },
+  "Camera | Photobooth Style": {
+    "prompt": "((Photobooth Style))"
+  },
+  "Camera | Surveillance Style": {
+    "prompt": "((Surveillance Style))"
+  },
+  "Camera | Forensic Photography": {
+    "prompt": "((Forensic Photography))"
+  },
+  "Camera | Paparazzi Shot": {
+    "prompt": "((Paparazzi Shot))"
+  },
+  "Camera | Candid Shot": {
+    "prompt": "((Candid Shot))"
+  },
+  "Camera | Selfie": {
+    "prompt": "((Selfie))"
+  },
+  "Camera | Mirror Selfie": {
+    "prompt": "((Mirror Selfie))"
+  },
+  "Camera | Group Photo": {
+    "prompt": "((Group Photo))"
+  },
+  "Camera | Press Photo": {
+    "prompt": "((Press Photo))"
+  },
+  "Camera | Documentary Style": {
+    "prompt": "((Documentary Style))"
+  },
+  "Camera | War Photography": {
+    "prompt": "((War Photography))"
+  },
+  "Camera | Street Photography": {
+    "prompt": "((Street Photography))"
+  },
+  "Camera | Architectural Photography": {
+    "prompt": "((Architectural Photography))"
+  },
+  "Camera | Fashion Photography": {
+    "prompt": "((Fashion Photography))"
+  },
+  "Camera | Beauty Shot": {
+    "prompt": "((Beauty Shot))"
+  },
+  "Camera | Product Photography": {
+    "prompt": "((Product Photography))"
+  },
+  "Camera | Still Life": {
+    "prompt": "((Still Life))"
+  },
+  "Camera | Abstract Photography": {
+    "prompt": "((Abstract Photography))"
+  },
+  "Camera | Conceptual Photography": {
+    "prompt": "((Conceptual Photography))"
+  },
+  "Camera | Fine Art Photography": {
+    "prompt": "((Fine Art Photography))"
+  },
+  "Camera | Astrophotography": {
+    "prompt": "((Astrophotography))"
+  },
+  "Camera | Long Exposure": {
+    "prompt": "((Long Exposure))"
+  },
+  "Camera | High-Speed Photography": {
+    "prompt": "((High-Speed Photography))"
+  },
+  "Camera | Kirlian Photography": {
+    "prompt": "((Kirlian Photography))"
+  },
+  "Camera | Schlieren Photography": {
+    "prompt": "((Schlieren Photography))"
+  },
+  "Camera | Stereoscopic": {
+    "prompt": "((Stereoscopic))"
+  },
+  "Camera | Autostereogram": {
+    "prompt": "((Autostereogram))"
+  },
+  "Camera | Photomicrography": {
+    "prompt": "((Photomicrography))"
+  },
+  "Camera | Electron Micrograph": {
+    "prompt": "((Electron Micrograph))"
+  },
+  "Camera | Hubble Telescope Image": {
+    "prompt": "((Hubble Telescope Image))"
+  },
+  "Camera | Mars Rover Image": {
+    "prompt": "((Mars Rover Image))"
+  },
+  "Camera | Deep Space Image": {
+    "prompt": "((Deep Space Image))"
+  },
+  "Camera | Sonogram": {
+    "prompt": "((Sonogram))"
+  },
+  "Camera | MRI Scan": {
+    "prompt": "((MRI Scan))"
+  },
+  "Camera | CT Scan": {
+    "prompt": "((CT Scan))"
+  },
+  "Camera | Endoscopy": {
+    "prompt": "((Endoscopy))"
+  },
+  "Camera | Laparoscopy": {
+    "prompt": "((Laparoscopy))"
+  },
+  "Camera | Colonoscopy": {
+    "prompt": "((Colonoscopy))"
+  },
+  "Camera | Arthroscopy": {
+    "prompt": "((Arthroscopy))"
+  },
+  "Camera | Microcinematography": {
+    "prompt": "((Microcinematography))"
+  },
+  "Camera | Photographic Mosaic": {
+    "prompt": "((Photographic Mosaic))"
+  },
+  "Camera | Composite Image": {
+    "prompt": "((Composite Image))"
+  },
+  "Camera | Stitched Panorama": {
+    "prompt": "((Stitched Panorama))"
+  },
+  "Camera | HDR Photography": {
+    "prompt": "((HDR Photography))"
+  },
+  "Camera | Tone-Mapped": {
+    "prompt": "((Tone-Mapped))"
+  },
+  "Camera | High Contrast": {
+    "prompt": "((High Contrast))"
+  },
+  "Camera | Low Contrast": {
+    "prompt": "((Low Contrast))"
+  },
+  "Camera | High Key Lighting": {
+    "prompt": "((High Key Lighting))"
+  },
+  "Camera | Low Key Lighting": {
+    "prompt": "((Low Key Lighting))"
+  },
+  "Camera | Rim Lighting": {
+    "prompt": "((Rim Lighting))"
+  },
+  "Camera | Backlighting": {
+    "prompt": "((Backlighting))"
+  },
+  "Camera | Soft Lighting": {
+    "prompt": "((Soft Lighting))"
+  },
+  "Camera | Hard Lighting": {
+    "prompt": "((Hard Lighting))"
+  },
+  "Camera | Natural Lighting": {
+    "prompt": "((Natural Lighting))"
+  },
+  "Camera | Studio Lighting": {
+    "prompt": "((Studio Lighting))"
+  },
+  "Camera | Golden Hour": {
+    "prompt": "((Golden Hour))"
+  },
+  "Camera | Blue Hour": {
+    "prompt": "((Blue Hour))"
+  },
+  "Camera | Twilight": {
+    "prompt": "((Twilight))"
+  },
+  "Camera | Moonlight": {
+    "prompt": "((Moonlight))"
+  },
+  "Camera | Candlelight": {
+    "prompt": "((Candlelight))"
+  },
+  "Camera | Neon Lighting": {
+    "prompt": "((Neon Lighting))"
+  },
+  "Camera | Blacklight": {
+    "prompt": "((Blacklight))"
+  },
+  "Camera | Strobe Lighting": {
+    "prompt": "((Strobe Lighting))"
+  },
+  "Camera | Laser Lighting": {
+    "prompt": "((Laser Lighting))"
+  },
+  "Camera | Volumetric Lighting": {
+    "prompt": "((Volumetric Lighting))"
+  },
+  "Camera | God Rays": {
+    "prompt": "((God Rays))"
+  },
+  "Camera | Lens Whacking": {
+    "prompt": "((Lens Whacking))"
+  },
+  "Camera | Prism Effect": {
+    "prompt": "((Prism Effect))"
+  },
+  "Camera | Oil Lens Effect": {
+    "prompt": "((Oil Lens Effect))"
+  },
+  "Camera | Vaseline on Lens": {
+    "prompt": "((Vaseline on Lens))"
+  },
+  "Camera | Dirty Lens": {
+    "prompt": "((Dirty Lens))"
+  },
+  "Camera | Foggy Lens": {
+    "prompt": "((Foggy Lens))"
+  },
+  "Camera | Rain on Lens": {
+    "prompt": "((Rain on Lens))"
+  },
+  "Camera | Snow on Lens": {
+    "prompt": "((Snow on Lens))"
+  },
+  "Camera | Cracked Lens": {
+    "prompt": "((Cracked Lens))"
+  },
+  "Camera | Vintage Lens": {
+    "prompt": "((Vintage Lens))"
+  },
+  "Camera | Toy Camera": {
+    "prompt": "((Toy Camera))"
+  },
+  "Camera | Pinhole Camera": {
+    "prompt": "((Pinhole Camera))"
+  },
+  "Camera | Disposable Camera": {
+    "prompt": "((Disposable Camera))"
+  },
+  "Camera | Instant Camera": {
+    "prompt": "((Instant Camera))"
+  },
+  "Camera | Box Camera": {
+    "prompt": "((Box Camera))"
+  },
+  "Camera | TLR (Twin Lens Reflex)": {
+    "prompt": "((TLR (Twin Lens Reflex)))"
+  },
+  "Camera | SLR (Single Lens Reflex)": {
+    "prompt": "((SLR (Single Lens Reflex)))"
+  },
+  "Camera | DSLR": {
+    "prompt": "((DSLR))"
+  },
+  "Camera | Mirrorless": {
+    "prompt": "((Mirrorless))"
+  },
+  "Camera | Medium Format": {
+    "prompt": "((Medium Format))"
+  },
+  "Camera | Large Format": {
+    "prompt": "((Large Format))"
+  },
+  "Camera | View Camera": {
+    "prompt": "((View Camera))"
+  },
+  "Camera | Rangefinder": {
+    "prompt": "((Rangefinder))"
+  },
+  "Camera | Spy Camera": {
+    "prompt": "((Spy Camera))"
+  },
+  "Camera | Hidden Camera": {
+    "prompt": "((Hidden Camera))"
+  },
+  "Camera | Body Camera": {
+    "prompt": "((Body Camera))"
+  },
+  "Camera | Action Camera": {
+    "prompt": "((Action Camera))"
+  },
+  "Camera | 360 Camera": {
+    "prompt": "((360 Camera))"
+  },
+  "Camera | Light Field Camera": {
+    "prompt": "((Light Field Camera))"
+  },
+  "Camera | Thermal Camera": {
+    "prompt": "((Thermal Camera))"
+  },
+  "Camera | UV Camera": {
+    "prompt": "((UV Camera))"
+  },
+  "Camera | IR Camera": {
+    "prompt": "((IR Camera))"
+  },
+  "Camera | Multispectral Camera": {
+    "prompt": "((Multispectral Camera))"
+  },
+  "Camera | Hyperspectral Camera": {
+    "prompt": "((Hyperspectral Camera))"
+  }
+}
