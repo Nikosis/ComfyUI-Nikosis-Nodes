@@ -28,7 +28,7 @@ class PromptMultipleStylesSelectorNikosis:
     FUNCTION = "commence"
     CATEGORY = "Nikosis Nodes/prompt"
 
-    def multi_style_prompt(self, style1="No Style", style2="No Style", style3="No Style", style4="No Style"):
+    def commence(self, style1="No Style", style2="No Style", style3="No Style", style4="No Style"):
         styles_data = self.loader.get_data()
         if not styles_data or all(s == "No Style" for s in [style1, style2, style3, style4]):
             return "", ""
