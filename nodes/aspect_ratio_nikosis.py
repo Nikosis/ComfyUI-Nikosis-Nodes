@@ -8,37 +8,12 @@ class AspectRatioNikosis:
 
     @classmethod
     def INPUT_TYPES(cls):
-        preset_ratios = [
-            "custom",
-            "1:2 portrait 704x1408",
-            "11:21 portrait 704x1344",
-            "4:7 portrait 768x1344",
-            "3:5 portrait 768x1280",
-            "13:19 portrait 832x1216",
-            "2:3 portrait 768x1152",
-            "13:18 portrait 832x1152",
-            "7:9 portrait 896x1152",
-            "14:17 portrait 896x1088",
-            "15:17 portrait 960x1088",
-            "15:16 portrait 960x1024",
-            "1:1 square 1024x1024",
-            "16:15 landscape 1024x960",
-            "17:15 landscape 1088x960",
-            "17:14 landscape 1088x896",
-            "9:7 landscape 1152x896",
-            "24:17 landscape 1152x832",
-            "3:2 landscape 1152x768",
-            "19:13 landscape 1216x832",
-            "5:3 landscape 1280x768",
-            "7:4 landscape 1344x768",
-            "12:7 landscape 1344x704",
-            "2:1 landscape 1408x704",
-            "21:10 landscape 1472x704",
-            "12:5 landscape 1536x640",
-            "5:2 landscape 1600x640",
-            "26:9 landscape 1664x576",
-            "3:1 landscape 1728x576",
-        ]
+        preset_ratios = ["custom", "1:2 portrait 704x1408", "11:21 portrait 704x1344", "4:7 portrait 768x1344", "3:5 portrait 768x1280", "13:19 portrait 832x1216", "2:3 portrait 768x1152",
+                         "13:18 portrait 832x1152", "7:9 portrait 896x1152", "14:17 portrait 896x1088", "15:17 portrait 960x1088", "15:16 portrait 960x1024", "1:1 square 1024x1024",
+                         "16:15 landscape 1024x960", "17:15 landscape 1088x960", "17:14 landscape 1088x896", "9:7 landscape 1152x896", "24:17 landscape 1152x832", "3:2 landscape 1152x768",
+                         "19:13 landscape 1216x832", "5:3 landscape 1280x768", "7:4 landscape 1344x768", "12:7 landscape 1344x704", "2:1 landscape 1408x704", "21:10 landscape 1472x704",
+                         "12:5 landscape 1536x640", "5:2 landscape 1600x640", "26:9 landscape 1664x576", "3:1 landscape 1728x576",
+                         ]
 
         return {
             "required": {
