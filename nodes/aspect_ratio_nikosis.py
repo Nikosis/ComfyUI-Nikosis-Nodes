@@ -18,7 +18,7 @@ class AspectRatioNikosis:
         return {
             "required": {
                 "model_type": (["SDXL", "SD3/Flux"], {"default": "SD3/Flux"}),
-                "preset_aspect_ratio": (preset_ratios, {"default": "custom"}),
+                "preset_dims": (preset_ratios, {"default": "custom"}),
                 "width": ("INT", {"default": 1024, "min": 16, "max": 16384, "step": 16, "disableInput": True}),
                 "height": ("INT", {"default": 1024, "min": 16, "max": 16384, "step": 16, "disableInput": True}),
                 "swap_dimensions": ("BOOLEAN", {"default": False, "label_off": "Disabled", "label_on": "Enabled"}),
@@ -31,11 +31,11 @@ class AspectRatioNikosis:
     FUNCTION = "commence"
     CATEGORY = "Nikosis Nodes/latent"
 
-    def commence(self, model_type, preset_aspect_ratio, width, height, swap_dimensions, batch_size):
+    def commence(self, model_type, preset_dims, width, height, swap_dimensions, batch_size):
 
         # Use preset dimensions if not "custom"
-        if preset_aspect_ratio != "custom":
-            width_str, height_str = preset_aspect_ratio.split(" ")[-1].split("x")
+        if preset_dims != "custom":
+            width_str, height_str = preset_dims.split(" ")[-1].split("x")
             width, height = int(width_str), int(height_str)
 
         # Swap dimensions if requested
